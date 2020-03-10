@@ -99,9 +99,9 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 " ===
 let g:neoterm_autoscroll = 1
 autocmd TermOpen term://* startinsert
-"tnoremap <C-N> <C-\><C-N>:q<CR>
+tnoremap <C-N> <C-\><C-N>:q<CR>
 
- nmap <CR> o<Esc>k$
+nmap <CR> o<Esc>k$
 inoremap <C-l> <Esc>A
 
 " ===
@@ -372,6 +372,7 @@ Plug 'tmhedberg/SimpylFold'
 Plug 'AndrewRadev/switch.vim' " gs to switch
 Plug 'ryanoasis/vim-devicons'
 
+
 " Dependencies
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'kana/vim-textobj-user'
@@ -394,7 +395,7 @@ source ~/.config/nvim/_machine_specific.vim
 " === Dress up my vim
 " ===
 set termguicolors     " enable true colors support
-let g:space_vim_transp_bg = 1
+let g:space_vim_transp_bg = 0 
 "set background=dark
 colorscheme space_vim_theme
 
@@ -503,6 +504,8 @@ inoremap <silent><expr> <Tab>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<Tab>" :
       \ coc#refresh()
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+				\: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 " Useful commands
 nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<cr>
