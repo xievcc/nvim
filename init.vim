@@ -283,8 +283,10 @@ endfunc
 
 call plug#begin('~/.config/nvim/plugged')
 
+Plug 'vivekvjn/vim-solarized8'
 " Testing my own plugin
 Plug 'theniceboy/vim-calc'
+Plug 'posva/vim-vue'
 
 " Pretty Dress
 Plug 'vim-airline/vim-airline'
@@ -395,9 +397,9 @@ source ~/.config/nvim/_machine_specific.vim
 " === Dress up my vim
 " ===
 set termguicolors     " enable true colors support
-let g:space_vim_transp_bg = 0 
+"let g:space_vim_transp_bg = 0 
 "set background=dark
-colorscheme space_vim_theme
+colorscheme solarized8_dark
 
 " ===================== Start of Plugin Settings =====================
 
@@ -494,7 +496,7 @@ let g:NERDTreeIndicatorMapCustom = {
 silent! au BufEnter * silent! unmap if
 "au TextChangedI * GitGutter
 " Installing plugins
-let g:coc_global_extensions = ['coc-python', 'coc-vimlsp', 'coc-snippets', 'coc-emmet', 'coc-html', 'coc-json', 'coc-css', 'coc-tsserver', 'coc-yank', 'coc-lists', 'coc-gitignore', 'coc-java' ,]
+let g:coc_global_extensions = ['coc-python', 'coc-vimlsp', 'coc-snippets', 'coc-emmet', 'coc-html', 'coc-json', 'coc-css', 'coc-tsserver', 'coc-yank', 'coc-lists', 'coc-gitignore', 'coc-java' ,'coc-vetur']
 " use <tab> for trigger completion and navigate to the next complete item
 function! s:check_back_space() abort
   let col = col('.') - 1
@@ -540,7 +542,7 @@ let g:mkdp_refresh_slow = 0
 let g:mkdp_command_for_global = 0
 let g:mkdp_open_to_the_world = 0
 let g:mkdp_open_ip = ''
-let g:mkdp_browser = 'chromium'
+let g:mkdp_browser = 'google-chrome-stable'
 let g:mkdp_echo_preview_url = 0
 let g:mkdp_browserfunc = ''
 let g:mkdp_preview_options = {
